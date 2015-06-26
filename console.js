@@ -13,13 +13,13 @@ var _ = require("underscore")
 var log4js = require('log4js');
 var logger = require('log4js').getLogger("webconsole");
 
-var CHALLENGING = false;
+var CHALLENGING = true;
 if(program.startchallenging) CHALLENGING = true;
 
 var minimaxbot = require("./bots/minimaxbot");
 
 // Challenging logic
-var MAX_ROOMS = 1;
+var MAX_ROOMS = 4;
 setInterval(function() {
 	if(CHALLENGING && _.values(bot.ROOMS).length < MAX_ROOMS) {
 		logger.info("Challenging...");
