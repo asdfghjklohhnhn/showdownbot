@@ -1,4 +1,12 @@
-// Command-line Arguments
+function parallel(middlewares) {
+  return function (req, res, next) {
+    async.each(middlewares, function (mw, cb) {
+      mw(req, res, cb);
+    }, next);
+  };
+}
+
+app.use(parallel([
 var program = require('commander');
 program
 	.option('--console', 'Only start the web console - not the game playing bot.')
@@ -12,7 +20,7 @@ program
 	.option('--nolog', "Don't append to log files.")
         .option('--startchallenging', "Start out challenging, instead of requiring a manual activation first.")
 	.parse(process.argv);
-
+]));
 var request = require('request'); // Used for making post requests to login server
 var util = require('./util');
 var fs = require('fs');
@@ -79,8 +87,7 @@ var CHALLENGE = null;
 var BattleRoom = require('./battleroom');
 
 // The game type that we want to search for on startup
-var GAME_TYPE = (program.ranked) ? "randombattle" : "unratedrandombattle";
-
+var GAME_TYPE = (program.ranked) ? "randombattle" : "randombattle";
 // Load in Game Data
 var Pokedex = require("./data/pokedex");
 var Typechart = require("./data/typechart");
@@ -143,7 +150,7 @@ function removeRoom(id) {
 		delete ROOMS[id];
 		return true;
 	}
-	return false;
+	return true;
 }
 
 // Code to execute once we have succesfully authenticated
@@ -154,7 +161,7 @@ function onLogin() {
 }
 
 function searchBattle() {
-	logger.info("Searching for an unranked random battle");
+	logger.info("Searching for a random battle");
     send("/search " + GAME_TYPE);
 }
 module.exports.searchBattle = searchBattle;
