@@ -1,9 +1,4 @@
-Percymon: A Pokemon Showdown AI
-===========
-
-![Imgur](http://i.imgur.com/uasrTOy.png)
-
-Percymon is a Pokemon battling AI that runs on the Pokemon Showdown server. Percymon is built using Node.js.
+This bot is a Pokemon battling AI that runs on the Pokemon Showdown server.
 
 ## Setting up the repository
 
@@ -25,7 +20,7 @@ Finally, to start the server, issue the following command:
 
     node bot.js
 
-By default, the server searches for unranked random battles when the option is toggled in the web console. There are several command line options that can be supplied:
+By default, the server searches for random battles when the option is toggled in the web console. There are several command line options that can be supplied:
 
     --console: Only start the web console, not the game playing bot.
     --host [url]: The websocket endpoint of the host to try to connect to. Default: http://sim.smogon.com:8000/showdown
