@@ -1,12 +1,3 @@
-function parallel(middlewares) {
-  return function (req, res, next) {
-    async.each(middlewares, function (mw, cb) {
-      mw(req, res, cb);
-    }, next);
-  };
-}
-
-app.use(parallel([
 var program = require('commander');
 program
 	.option('--console', 'Only start the web console - not the game playing bot.')
@@ -20,7 +11,6 @@ program
 	.option('--nolog', "Don't append to log files.")
         .option('--startchallenging', "Start out challenging, instead of requiring a manual activation first.")
 	.parse(process.argv);
-]));
 var request = require('request'); // Used for making post requests to login server
 var util = require('./util');
 var fs = require('fs');
