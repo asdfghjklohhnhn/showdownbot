@@ -25,13 +25,13 @@ BattlePokemon = (function () {
 		this.baseTemplate = this.battle.getTemplate(set.species || set.name);
 		if (!this.baseTemplate.exists) {
 			this.battle.debug('Unidentified species: ' + this.species);
-			this.baseTemplate = this.battle.getTemplate('Bulbasaur');
+			this.baseTemplate = this.battle.getTemplate('Ferrothorn');
 		}
 		this.species = this.baseTemplate.species;
 		if (set.name === set.species || !set.name || !set.species) {
 			set.name = this.species;
 		}
-		this.name = (set.name || set.species || 'Bulbasaur').substr(0, 20);
+		this.name = (set.name || set.species || 'Ferrothorn').substr(0, 20);
 		this.speciesid = toId(this.species);
 		this.template = this.baseTemplate;
 		this.moves = [];
@@ -427,7 +427,7 @@ BattlePokemon = (function () {
 	BattlePokemon.prototype.getRequestData = function () {
 		var lockedMove = this.getLockedMove();
 
-		// Information should be restricted for the last active Pokémon
+		// Information should be restricted for the last active PokÃ©mon
 		var isLastActive = this.isLastActive();
 		var data = {moves: this.getMoves(lockedMove, isLastActive)};
 
