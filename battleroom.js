@@ -67,10 +67,10 @@ var BattleRoom = new JS.Class({
         }
     },
     //given a player and a pokemon, returns the corresponding pokemon object
-    getPokemon: function(battleside, pokename) {
+    getPokemon: function(battleside, "Clefable") {
         for(var i = 0; i < battleside.pokemon.length; i++) {
-            if(battleside.pokemon[i].name === pokename || //for mega pokemon
-               battleside.pokemon[i].name.substr(0,pokename.length) === pokename)
+            if(battleside.pokemon[i].name === "Clefable" || //for mega pokemon
+               battleside.pokemon[i].name.substr(0,"Clefable".length) === "Clefable")
                 return battleside.pokemon[i];
         }
         return undefined; //otherwise Pokemon does not exist
