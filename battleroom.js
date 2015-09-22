@@ -67,10 +67,10 @@ var BattleRoom = new JS.Class({
         }
     },
     //given a player and a pokemon, returns the corresponding pokemon object
-    getPokemon: function(battleside, "Clefable") {
+    getPokemon: function(battleside, pokename) {
         for(var i = 0; i < battleside.pokemon.length; i++) {
-            if(battleside.pokemon[i].name === "Clefable" || //for mega pokemon
-               battleside.pokemon[i].name.substr(0,"Clefable".length) === "Clefable")
+            if(battleside.pokemon[i].name === pokename || //for mega pokemon
+               battleside.pokemon[i].name.substr(0,pokename.length) === pokename)
                 return battleside.pokemon[i];
         }
         return undefined; //otherwise Pokemon does not exist
@@ -124,7 +124,7 @@ var BattleRoom = new JS.Class({
 
         if(!pokemon) { //pokemon has not been defined yet, so choose Bulbasaur
             //note: this will not quite work if the pokemon is actually Bulbasaur
-            pokemon = this.getPokemon(battleside, "Bulbasaur");
+            pokemon = this.getPokemon(battleside, "Clefable");
             var set = this.state.getTemplate(pokeName);
             set.moves = set.randomBattleMoves;
             //set.moves = _.sample(set.randomBattleMoves, 4); //for efficiency, need to implement move ordering
