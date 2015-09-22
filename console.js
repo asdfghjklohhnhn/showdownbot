@@ -19,7 +19,7 @@ if(program.startchallenging) CHALLENGING = true;
 var minimaxbot = require("./bots/minimaxbot");
 
 // Challenging logic
-var MAX_ROOMS = 2;
+var MAX_ROOMS = 1;
 setInterval(function() {
 	if(CHALLENGING && _.values(bot.ROOMS).length < MAX_ROOMS) {
 		logger.info("Challenging...");
