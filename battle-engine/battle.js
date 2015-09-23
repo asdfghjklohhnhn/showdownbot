@@ -28,7 +28,6 @@ BattleSide = require('./battleside');
 // Battle Class
 Battle = (function () {
 	var Battle = {};
-send team123456
 	Battle.construct = (function () {
 		var battleProtoCache = {};
 		return function (roomid, formatarg, rated) {
