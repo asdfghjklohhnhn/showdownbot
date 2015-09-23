@@ -970,7 +970,7 @@ exports.BattleScripts = {
 					break;
 
 				// we only need to set up once
-				case 'swordsdance': case 'dragondance': case 'coil': case 'curse': case 'bulkup': case 'bellydrum':
+				case 'swordsdance': case 'dragondance': case 'coil': case 'curse': case 'bulkup':
 					if (counter.Physical < 2 && !hasMove['batonpass']) rejected = true;
 					if (setupType !== 'Physical' || counter['physicalsetup'] > 1) rejected = true;
 					isSetup = true;
