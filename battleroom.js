@@ -648,7 +648,7 @@ var BattleRoom = new JS.Class({
 
             var details = pokemon.details.split(",");
             var name = details[0].trim();
-            var level = parseInt(details[1].trim().substring(1));
+            var level = parseInt(details[1].substring(1));
             var gender = details[2] ? details[2].trim() : null;
 
             var template = {
